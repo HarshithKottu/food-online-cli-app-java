@@ -12,6 +12,44 @@ public class Restaurant {
     public Restaurant() {
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public List<String> getMenu() {
+        return menu;
+    }
+
+    public void setMenu(List<String> menu) {
+        this.menu = menu;
+    }
+
+    public void setMenu(String datum) {
+        String csvSplitBy = ":";
+        String[] menu = datum.split(csvSplitBy);
+        this.menu = List.of(menu);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -34,4 +72,6 @@ public class Restaurant {
                 ", menu=" + menu +
                 '}';
     }
+
+
 }
