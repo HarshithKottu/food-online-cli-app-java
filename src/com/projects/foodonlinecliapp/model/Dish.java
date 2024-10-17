@@ -15,16 +15,18 @@ public class Dish {
         return id;
     }
 
-    public void setId(String id) {
+    public Dish setId(String id) {
         this.id = id;
+        return this;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public Dish setName(String name) {
         this.name = name;
+        return this;
     }
 
     public String getDescription() {

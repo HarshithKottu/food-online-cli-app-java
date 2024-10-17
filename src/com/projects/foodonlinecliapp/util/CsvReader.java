@@ -53,7 +53,7 @@ public class CsvReader {
                 dish.setId(data[0]);
                 dish.setName(data[1]);
                 dish.setDescription(data[2]);
-                dish.setPrice(Double.parseDouble(data[3]));
+                dish.setPrice(Double.parseDouble(data[3])); // we get data as string from array here, so we parse into Double
                 dishes.add(dish);
             }
         } catch (IOException e) {
