@@ -27,4 +27,8 @@ public class DishRepository {
     public Optional<Dish> getDishById(String id) {
         return this.dishList.stream().filter(dish -> dish.getId().equals(id)).findFirst();
     }
+
+    public void deleteDish(Dish dish) {
+        this.dishList.remove(dish);
+    }
 }

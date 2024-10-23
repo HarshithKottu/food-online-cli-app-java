@@ -32,5 +32,12 @@ public class CustomerRepository {
         return this.customerList.stream().filter(customer -> customer.getId().equals(id)).findFirst();
     }
 
+    public void deleteCustomer(Customer customer) {
+        this.customerList.remove(customer);
+    }
+
+    public Optional<Customer> findByEmailAndPassword(String email, String password) {
+        return this.customerList.stream().filter(customer -> (customer.getEmail().equals(email)) && customer.getPassword().equals(password)).findFirst();
+    }
 
 }

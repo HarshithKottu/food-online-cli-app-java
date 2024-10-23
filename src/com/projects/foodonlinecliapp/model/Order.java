@@ -1,6 +1,6 @@
 package com.projects.foodonlinecliapp.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
@@ -11,7 +11,7 @@ public class Order {
     private List<Dish> dishes;
     private double totalPrice;
 
-    private Date orderDate;
+    private LocalDate orderDate;
 
     public Order() {
     }
