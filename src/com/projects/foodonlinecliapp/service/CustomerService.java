@@ -7,19 +7,19 @@ import com.projects.foodonlinecliapp.model.Customer;
 import java.util.List;
 
 public interface CustomerService {
-    public Customer save(Customer customer) throws CustomerAlreadyExistsException;
+    Customer save(Customer customer) throws CustomerAlreadyExistsException;
 
-    public List<Customer> getAllCustomers();
+    List<Customer> getAllCustomers();
 
-    public Customer getCustomerById(String id);
+    Customer getCustomerById(String id) throws CustomerNotFoundException;
 
-    public Customer update(Customer customer);
+    Customer update(Customer customer);
 
-    public void delete(String id) throws CustomerNotFoundException;
+    void delete(String id) throws CustomerNotFoundException;
 
-    public Customer validateCustomerLogin(String email, String password) throws CustomerNotFoundException;
+    Customer validateCustomerLogin(String email, String password) throws CustomerNotFoundException;
 
-    public void setCurrentLoggedInCustomer(Customer customer);
+    void setCurrentLoggedInCustomer(Customer customer);
 
-    public Customer getCurrentLoggedInCustomer();
+    Customer getCurrentLoggedInCustomer();
 }

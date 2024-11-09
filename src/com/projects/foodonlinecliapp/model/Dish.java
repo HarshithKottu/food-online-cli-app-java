@@ -33,16 +33,18 @@ public class Dish {
         return description;
     }
 
-    public void setDescription(String description) {
+    public Dish setDescription(String description) {
         this.description = description;
+        return this;
     }
 
     public double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public Dish setPrice(double price) {
         this.price = price;
+        return this;
     }
 
     @Override

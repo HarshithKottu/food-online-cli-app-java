@@ -12,4 +12,8 @@ public interface RestaurantService {
     public Restaurant saveRestaurant(Restaurant restaurant) throws RestaurantAlreadyExistsException;
 
     public Restaurant getRestaurantById(String id) throws RestaurantNotFoundException;
+
+    public void delete(String id) throws RestaurantNotFoundException;
+
+    public Restaurant updateRestaurant(Restaurant restaurant) throws RestaurantNotFoundException;
 }

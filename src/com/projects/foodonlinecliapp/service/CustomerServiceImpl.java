@@ -11,7 +11,7 @@ import java.util.Optional;
 public class CustomerServiceImpl implements CustomerService {
 
     // instance variable. It uses more time so we created
-    private CustomerRepository customerRepository;
+    private final CustomerRepository customerRepository;
     private Customer currentLoggedInCustomer;
 
     public CustomerServiceImpl(CustomerRepository customerRepository) {
@@ -34,7 +34,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Customer getCustomerById(String id) {
+    public Customer getCustomerById(String id) throws CustomerNotFoundException {
         return this.customerRepository.findCustomerByID(id).get();
     }
 

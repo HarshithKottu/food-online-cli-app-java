@@ -15,11 +15,12 @@ public class Factory {
     public static CsvReader getCsvReader() {
         return new CsvReader();
     }
-    public static CustomerRepository getCustomerRepository() {
+
+    public static final CustomerRepository getCustomerRepository() {
         return new CustomerRepository();
     }
 
-    public static CustomerServiceImpl getCustomerService() {
+    public static final CustomerServiceImpl getCustomerService() {
         return new CustomerServiceImpl(getCustomerRepository());
     }
 
@@ -50,5 +51,6 @@ public class Factory {
     public static RestaurantController getRestaurantController() {
         return new RestaurantController(getRestaurantService());
     }
+
 
 }
