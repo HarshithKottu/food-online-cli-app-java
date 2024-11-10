@@ -51,7 +51,7 @@ public class DishesMenu extends Menu {
             }
         } catch (Exception e) {
             System.out.println("Some internal error occurred. Please try again !");
-            //displayMainMenu();
+            displayMainMenu();
         }
     }
 

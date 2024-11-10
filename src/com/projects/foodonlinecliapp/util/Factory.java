@@ -2,12 +2,15 @@ package com.projects.foodonlinecliapp.util;
 
 import com.projects.foodonlinecliapp.controller.CustomerController;
 import com.projects.foodonlinecliapp.controller.DishController;
+import com.projects.foodonlinecliapp.controller.OrderController;
 import com.projects.foodonlinecliapp.controller.RestaurantController;
 import com.projects.foodonlinecliapp.repository.CustomerRepository;
 import com.projects.foodonlinecliapp.repository.DishRepository;
+import com.projects.foodonlinecliapp.repository.OrderRepository;
 import com.projects.foodonlinecliapp.repository.RestaurantRepository;
 import com.projects.foodonlinecliapp.service.CustomerServiceImpl;
 import com.projects.foodonlinecliapp.service.DishServiceImpl;
+import com.projects.foodonlinecliapp.service.OrderServiceImpl;
 import com.projects.foodonlinecliapp.service.RestaurantServiceImpl;
 
 public class Factory {
@@ -52,5 +55,16 @@ public class Factory {
         return new RestaurantController(getRestaurantService());
     }
 
+    public static OrderRepository getOrderRepository() {
+        return new OrderRepository();
+    }
+
+    public static OrderServiceImpl getOrderServiceImpl() {
+        return new OrderServiceImpl(getOrderRepository());
+    }
+
+    public static OrderController getOrderController() {
+        return new OrderController(getOrderServiceImpl());
+    }
 
 }

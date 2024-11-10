@@ -16,6 +16,60 @@ public class Order {
     public Order() {
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public Order setId(String id) {
+        this.id = id;
+        return this;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public Order setCustomer(Customer customer) {
+        this.customer = customer;
+        return this;
+    }
+
+    public Restaurant getRestaurant() {
+        return restaurant;
+    }
+
+    public Order setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
+        return this;
+    }
+
+    public List<Dish> getDishes() {
+        return dishes;
+    }
+
+    public Order setDishes(List<Dish> dishes) {
+        this.dishes = dishes;
+        return this;
+    }
+
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public Order setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
+        return this;
+    }
+
+    public LocalDate getOrderDate() {
+        return orderDate;
+    }
+
+    public Order setOrderDate(LocalDate orderDate) {
+        this.orderDate = orderDate;
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

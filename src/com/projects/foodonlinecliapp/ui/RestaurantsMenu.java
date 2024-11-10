@@ -1,9 +1,12 @@
 package com.projects.foodonlinecliapp.ui;
 
 import com.projects.foodonlinecliapp.controller.RestaurantController;
+import com.projects.foodonlinecliapp.exceptions.DishNotFoundException;
 import com.projects.foodonlinecliapp.exceptions.RestaurantAlreadyExistsException;
 import com.projects.foodonlinecliapp.exceptions.RestaurantNotFoundException;
+import com.projects.foodonlinecliapp.model.Dish;
 import com.projects.foodonlinecliapp.model.Restaurant;
+import com.projects.foodonlinecliapp.service.RestaurantService;
 import com.projects.foodonlinecliapp.util.Factory;
 
 import java.util.Arrays;
@@ -123,6 +126,17 @@ public class RestaurantsMenu extends Menu {
             System.out.println("Restaurant deleted successfully");
         } catch (RestaurantNotFoundException e) {
             System.out.println(e.getMessage());
+        }
+    }
+
+    public void displayMenuItems(String restaurantId) throws RestaurantNotFoundException, DishNotFoundException {
+        displayMenuHeader("Dishes Menu Details");
+        System.out.printf("%-10s %-30s %-80s %-10s\n", "Id", "Name", "Description", "Price");
+        printDashLine();
+        RestaurantService restaurantService = Factory.getRestaurantService();
+        List<Dish> dishItems = restaurantService.getDishItems(restaurantId);
+        for (Dish dish : dishItems) {
+            System.out.printf("%-10s %-30s %-80s %-10s\n", dish.getId(), dish.getName(), dish.getDescription(), String.format("$%.2f", dish.getPrice()));
         }
     }
 }

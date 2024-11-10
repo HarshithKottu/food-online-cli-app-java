@@ -1,10 +1,14 @@
 package com.projects.foodonlinecliapp.service;
 
+import com.projects.foodonlinecliapp.exceptions.DishNotFoundException;
 import com.projects.foodonlinecliapp.exceptions.RestaurantAlreadyExistsException;
 import com.projects.foodonlinecliapp.exceptions.RestaurantNotFoundException;
+import com.projects.foodonlinecliapp.model.Dish;
 import com.projects.foodonlinecliapp.model.Restaurant;
 import com.projects.foodonlinecliapp.repository.RestaurantRepository;
+import com.projects.foodonlinecliapp.util.Factory;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -52,5 +56,21 @@ public class RestaurantServiceImpl implements RestaurantService {
             throw new RestaurantNotFoundException("Restaurant Not Found with given ID: " + restaurant.getId());
         return this.restaurantRepository.updateRestaurant(restaurant);
 
+    }
+
+    @Override
+    public List<Dish> getDishItems(String id) throws RestaurantNotFoundException, DishNotFoundException {
+        Optional<Restaurant> restaurantById = this.restaurantRepository.getRestaurantById(id);
+        if (restaurantById.isEmpty())
+            throw new RestaurantNotFoundException("Restaurant Not Found with this Id  :" + id);
+        List<Dish> dishList = new ArrayList<>();
+        Restaurant restaurant = restaurantById.get();
+        List<String> dishIds = restaurant.getMenu();
+        DishService dishService = Factory.getDishService();
+        for (String dishId : dishIds) {
+            Dish dish = dishService.getDishById(dishId);
+            dishList.add(dish);
+        }
+        return dishList;
     }
 }

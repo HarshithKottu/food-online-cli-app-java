@@ -87,4 +87,9 @@ public class Menu {
         System.out.println(dashesLine);
     }
 
+    public void printDashLine() {
+        String dashesLine = new String(new char[150]).replace('\0', '-');
+        System.out.println(dashesLine);
+    }
+
 }
